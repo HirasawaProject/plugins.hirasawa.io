@@ -11,4 +11,4 @@ Setting up this project is very similar any other Laravel project
 * `php artisan db:seed` - For standard values
 * `php artisan db:seed --class=DevelopmentSeeder` - For development data
 
-When you run the development seeder you also generate an admin account with the username `admin` and password `admin`
+When you run the development seeder you also generate an admin account with the email `admin@hirasawa.io` and password `admin`
