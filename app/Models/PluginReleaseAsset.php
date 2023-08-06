@@ -11,6 +11,6 @@ class PluginReleaseAsset extends Model
 
     public function release()
     {
-        return $this->belongsTo(PluginRelease::class);
+        return $this->belongsTo(PluginRelease::class, 'plugin_release_id');
     }
 }

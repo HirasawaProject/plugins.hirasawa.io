@@ -6,6 +6,10 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
+use App\Models\PluginRelease;
+use App\Models\PluginReleaseAsset;
+use App\Observers\PluginReleaseObserver;
+use App\Observers\PluginReleaseAssetObserver;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -25,7 +29,8 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        PluginRelease::observe(PluginReleaseObserver::class);
+        PluginReleaseAsset::observe(PluginReleaseAssetObserver::class);
     }
 
     /**

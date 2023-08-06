@@ -24,6 +24,7 @@ class PluginReleaseFactory extends Factory
             'description' => $this->faker->paragraph,
             'plugin_id' => Plugin::inRandomOrder()->first()->id,
             'version' => $this->faker->numerify('#.#.#'),
+            'download_count' => 0,
         ];
     }
 
