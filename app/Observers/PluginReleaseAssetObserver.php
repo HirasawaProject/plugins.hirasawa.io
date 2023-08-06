@@ -11,8 +11,6 @@ class PluginReleaseAssetObserver
      */
     public function created(PluginReleaseAsset $pluginReleaseAsset): void
     {
-        // Just to aid the development seeder
-        $pluginReleaseAsset->refresh();
         $pluginReleaseAsset->release->increment('download_count', $pluginReleaseAsset->download_count);
     }
 
