@@ -12,7 +12,6 @@ class PluginReleaseObserver
     public function created(PluginRelease $pluginRelease): void
     {
         $pluginRelease->plugin->increment('download_count', $pluginRelease->download_count);
-        dump("foo");
     }
 
     /**
@@ -23,7 +22,7 @@ class PluginReleaseObserver
         if ($pluginRelease->isDirty('download_count')) {
             // We need to calculate the difference between the old and new download count in case of a large download increase
             // Like if the development seeder was ran
-            $difference = $pluginRelease->getOriginal('download_count') - $pluginRelease->download_count;
+            $difference = $pluginRelease->download_count - $pluginRelease->getOriginal('download_count');
             $pluginRelease->plugin->increment('download_count', $difference);
         }
     }
