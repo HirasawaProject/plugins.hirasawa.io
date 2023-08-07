@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PluginController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -34,5 +35,11 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+//Plugin
+Route::get('/browse', [PluginController::class, 'browse'])->name('browse');
+Route::get('/plugins/{plugin}', [PluginController::class, 'show'])->name('plugins.show');
+Route::get('/plugins', 'PluginController@browse')->name('plugins.browse');
+
 
 require __DIR__.'/auth.php';
