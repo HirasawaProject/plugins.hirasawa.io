@@ -16,15 +16,15 @@ class DevelopmentSeeder extends Seeder
      */
     public function run(): void
     {
-        $user = User::factory()->withRoles([
-            Role::where('name', 'Administrator')->first(),
-        ])->create([
-            'name' => 'admin',
-            'email' => 'admin@hirasawa.io',
-            'password' => Hash::make('admin'),
-        ]);
+        // $user = User::factory()->withRoles([
+        //     Role::where('name', 'Administrator')->first(),
+        // ])->create([
+        //     'name' => 'admin',
+        //     'email' => 'admin@hirasawa.io',
+        //     'password' => Hash::make('admin'),
+        // ]);
 
         User::factory(100)->create();
-        Plugin::factory(10)->withReleases(5)->withComments(100)->giveAuthorRole()->create();
+        Plugin::factory(200)->withReleases(5)->withComments(100)->giveAuthorRole()->create();
     }
 }
