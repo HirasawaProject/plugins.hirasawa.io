@@ -21,11 +21,7 @@ const displayedPlugins = computed(() => {
   return orderedPlugins.value.slice(0, limit.value);
 });
 const loadingMore = ref(false);
-
-
-
 const showSuggestions = ref(false);
-
 const filteredPlugins = computed(() => {
   return plugins.filter(plugin => {
     if (searchQuery.value && !plugin.name.toLowerCase().includes(searchQuery.value.toLowerCase())) return false;
@@ -121,12 +117,7 @@ const loadMore = () => {
               </div>
             </div>
           </form>
-
-
-          <!-- Filters (if any) will go here -->
-
-          <div
-            class="background-default border shadow-md rounded-md p-4 overflow-hidden border-gray-300 transition-all cursor-pointer mt-8">
+          <div class="background-default border shadow-md rounded-md p-4 overflow-hidden border-gray-300 transition-all cursor-pointer mt-8">
             <div class="flex flex-col space-y-4">
               <label for="ordering" class="block text-sm font-medium text-gray-700">Order:</label>
               <div class="mt-1 relative rounded-md shadow-sm">
