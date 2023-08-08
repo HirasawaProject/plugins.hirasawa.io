@@ -15,8 +15,8 @@ class PluginController extends Controller
         
         $category_id = $request->get('category');
         $targeting = $request->get('targeting');
-        
-        $query = Plugin::where('is_public', true)->with('author');
+        $plugins = Plugin::with('categories')->get();
+        $query = Plugin::where('is_public', true)->with(['author','categories' ]);
 
         if ($category_id && $category_id != 'unlisted') {
             $query->whereHas('categories', function ($q) use ($category_id) {

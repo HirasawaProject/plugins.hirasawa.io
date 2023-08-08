@@ -39,7 +39,7 @@ defineProps({
                     </div>
                     <!-- Categories as Icons -->
                     <div class="plugin-categories">
-                        <img v-for="category in plugin.categories" :alt="category.name" :title="category.name" />
+                        <img v-for="category in plugin.categories" :alt="category.name" :title="category.name" :class="gg-shape-square" />
                     </div>
                 </div>
             </div>

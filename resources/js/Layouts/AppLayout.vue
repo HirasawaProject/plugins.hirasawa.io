@@ -18,7 +18,9 @@ const registerUrl = route('register');
 
 
 </script>
-
+<style scoped>
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css");
+</style>
 <template>
     <div>
         <header class="dark:bg-gray-800 dark:text-gray-100">

@@ -8,21 +8,23 @@ defineProps({
 </script>
 
 <template>
-   
+  
     <a :href="route('plugins.show', {'plugin': plugin})" class="block" v-for="plugin in plugins">
-        <div class="background-default border dark:border-gray-800 shadow-md rounded-md p-4 overflow-hidden !border-gray-300 !dark:border-gray-700 border-1px hover:bg-gray-100 dark:hover:bg-gray-800 transition-all cursor-pointer h-auto">
+        
+        <div class="background-default border dark:border-gray-800 shadow-md rounded-md p-4 overflow-hidden !border-gray-300 !dark:border-gray-700 border-1px hover:bg-gray-100 dark:hover:bg-gray-300 transition-all cursor-pointer h-auto mb-4">
             <div class="flex space-x-4 h-full">
                 <div class="flex-shrink-0">
                     <div class="rounded-lg h-20 md:h-24">
-                        <img class="rounded-lg w-full h-full object-cover" :title="plugin.name" :src="plugin.avatar_url" :alt="plugin.name">
+                        <img class="rounded-lg w-full h-full object-cover" :title="plugin.name" src="https://www.dockhunt.com/_next/image?url=https%3A%2F%2Fdockhunt-images.nyc3.cdn.digitaloceanspaces.com%2Fplaceholder.png&w=256&q=75" :alt="plugin.name" >
                     </div>
                 </div>
                 <div class="overflow-hidden min-w-0 flex-grow">
                     <h2 class="text-lg font-bold text-gray-600 hover:underline">
                         {{ plugin.name }}
-                        <span class="text-sm font-normal"> by <span class="font-bold color-primary hover:underline">{{ plugin.author.name }}</span></span>
+                        
                     </h2>
-                    <h3 class="mb-1 text-sm truncate">{{ plugin.description }}</h3>
+                    <span class="text-sm font-normal overflow-hidden">by <span class="font-bold color-primary hover:underline overflow-hidden">{{ plugin.author.name }}</span></span>
+                    <h3 class="mb-1 text-sm truncate-2-lines w-full md:min-w-[600px] mx-auto">{{ plugin.description }}</h3>
                     <div class="flex space-x-4 text-sm">
                         <span class="inline-flex items-center">
                             <!-- Views Icon -->
@@ -34,13 +36,15 @@ defineProps({
                         </span>
                         <span class="inline-flex items-center">
                             <!-- Version Icon -->
-                            Version {{ plugin.view_count }}
+                            Views {{ plugin.view_count }}
                         </span>
                     </div>
                     <!-- Categories as Icons -->
-                    <div class="plugin-categories">
-                        <img v-for="category in plugin.categories" :alt="category.name" :title="category.name" />
-                    </div>
+                    <div class="plugin-categories flex">
+                        <span v-for="category in plugin.categories" class="mr-2" :class="category.icon"></span>
+
+                        
+                      </div>
                 </div>
             </div>
         </div>
